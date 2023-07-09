@@ -21,6 +21,7 @@
     "jsonwebtoken": "9.0.1",
     "memory-cache": "0.2.0",
     "mongoose": "7.3.2",
+    "mongoose-autopopulate": "1.0.1",
     "swagger-ui-express": "4.6.3"
   },
   "devDependencies": {
