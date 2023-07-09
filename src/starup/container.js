@@ -14,22 +14,35 @@ const { HomeController } = require("../controllers");
 const { HomeRoutes } = require("../routes/index.routes");
 const Routes = require("../routes");
 
+//models
+const { User, Idea, Comment } = require("../models");
+
 const container = createContainer();
 
 container
-  .register({//config
+  .register({
+    //config
     app: asClass(app).singleton(),
     router: asFunction(Routes).singleton(),
     config: asValue(config),
   })
-  .register({//servicios
+  .register({
+    //servicios
     HomeService: asClass(HomeService).singleton(),
   })
-  .register({//controllers
+  .register({
+    //controllers
     HomeController: asClass(HomeController.bind(HomeController)).singleton(),
   })
-  .register({//routes
+  .register({
+    //routes
     HomeRoutes: asFunction(HomeRoutes).singleton(),
+  })
+  .register({
+    //models
+    User: asValue(User),
+    Idea: asValue(Idea),
+    Comment: asValue(Comment),
   });
 
 module.exports = container;
